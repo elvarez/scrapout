@@ -1,0 +1,3 @@
+== README
+
+Scrapout automatically deletes To-Do items older than 7 days
