@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
 
+  has_many :items
+  has_many :lists
+
+  
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :username, presence: true, length: {maximum: 20 }
