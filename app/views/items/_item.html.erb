@@ -1,7 +1,7 @@
       <div class="media">
 	<div class="media-body">
 	  <small>
-	    <%= item.description %><br/>
+	    <%= item.description %> <%= link_to "x", [item.list, item], method: :delete %><br/>
 	  </small>
         </div>
       </div>

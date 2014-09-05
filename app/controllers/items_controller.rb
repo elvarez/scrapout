@@ -16,6 +16,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    if @item.destroy
+      redirect_to @list
+    else
+      redirect_to @list
+    end
+  end
+
   def show
   end
 

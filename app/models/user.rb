@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :items
-  has_many :lists
+  has_many :items, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
   
   before_save { self.email = email.downcase }

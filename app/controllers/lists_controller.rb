@@ -1,9 +1,10 @@
 class ListsController < ApplicationController
 
-before_action :signed_in_user, only: [:index, :create, :show]
+before_action :signed_in_user, only: [:index, :create, :show, :destroy]
   
   def index
     @lists = current_user.lists.all
+    @list = List.new
     if @lists.empty?
       redirect_to :action => 'new'
     end
@@ -30,6 +31,15 @@ before_action :signed_in_user, only: [:index, :create, :show]
     else
       @items = @list.items
     end    
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    if @list.destroy
+      redirect_to :action => 'index'
+    else
+      redirect_to :action => 'index'
+    end
   end
 
   private

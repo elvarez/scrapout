@@ -2,5 +2,7 @@
 
 <% @lists.each do |l| %>
   <%= link_to l.title, l %>
+  <%= link_to "x", l, method: :delete %>
   </br>
 <% end %>
+<%= render partial: 'form', locals: { list: @list} %>
