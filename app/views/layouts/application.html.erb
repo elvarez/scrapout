@@ -5,6 +5,13 @@
   <div class="navbar-inner">
     <div class="container">
       <nav>
+	<ul class="nav pull-left">
+          <li>
+	    <p class="navbar-text">
+	      <%= signed_in? ? current_user.username : "" %>
+	    </p>
+	  </li>
+	</ul>
         <ul class="nav pull-right">
           <li><%= link_to "Lists", lists_path %></li>
           <li><%= link_to "Home", root_path %></li>
