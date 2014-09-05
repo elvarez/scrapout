@@ -1,0 +1,5 @@
+    <h1><%= @list.title %></h1>
+    <h4> Items <h4/>
+	<%= render @items %>
+	<%= render partial: 'items/form', locals: { list: @list, item: @list.items.build } %>
+
