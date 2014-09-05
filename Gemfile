@@ -15,6 +15,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # use bootstrap
 gem 'bootstrap-sass', '2.3.2.0'
 
+# whenever for scheduling
+gem 'whenever', :require => false
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
