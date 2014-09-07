@@ -1,7 +1,10 @@
       <div class="media">
 	<div class="media-body">
 	  <small>
-	    <%= todo_item.description %>, <%= distance_of_time_in_words(Time.now, todo_item.deadline) %>, <%= link_to "x", [todo_item.list, todo_item], method: :delete %>
+	    <%= todo_item.description %>,
+	    <%= distance_of_time_in_words(Time.now, todo_item.deadline) %>,
+	    <%= link_to "x", [todo_item.list, todo_item], method: :delete %>,
+	    <%= link_to "done!", toggle_done_list_item_path(todo_item.list_id, todo_item), method: :put %>
 	  </small>
         </div>
       </div>

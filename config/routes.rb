@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   resources :lists do
-  resources :items
+    resources :items do
+      member do
+        put :toggle_done
+      end  
+    end
   end
 end

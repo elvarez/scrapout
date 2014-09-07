@@ -6,6 +6,7 @@ class Item < ActiveRecord::Base
   validates :list_id, presence: true
   validates :description, presence: true
   validates :deadline, presence: true
+  validate :deadline_cannot_be_in_the_past
 
   scope :todo, -> { where("done = ? AND missed = ?", false, false) }
   scope :missed, -> { where(missed: true) }
@@ -15,4 +16,11 @@ class Item < ActiveRecord::Base
     (self.deadline - Time.now)
   end
 
+
+  def deadline_cannot_be_in_the_past
+    errors.add(:deadline, "can't be in the past") if
+      !deadline.blank? and deadline < Time.now
+  end
+
+  
 end

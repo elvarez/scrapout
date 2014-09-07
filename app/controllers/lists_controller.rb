@@ -31,6 +31,7 @@ before_action :signed_in_user, only: [:index, :create, :show, :destroy]
     else
       @todo = @list.items.todo
       @missed = @list.items.missed
+      @done = @list.items.done
     end    
   end
 

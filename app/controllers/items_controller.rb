@@ -27,6 +27,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def toggle_done
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    @item.toggle!(:done)
+    redirect_to @list
+  end
+  
+
   def show
   end
 

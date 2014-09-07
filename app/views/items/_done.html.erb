@@ -1,7 +1,9 @@
       <div class="media">
 	<div class="media-body">
 	  <small>
-	    <%= done_item.description %>, <%= link_to "x", [done_item.list, done_item], method: :delete %>
+	    <%= done_item.description %>,
+	    <%= link_to "x", [done_item.list, done_item], method: :delete %>,
+	    <%= link_to "undone", toggle_done_list_item_path(done_item.list_id, done_item), method: :put %>
 	  </small>
         </div>
       </div>
