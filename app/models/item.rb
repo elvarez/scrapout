@@ -5,9 +5,10 @@ class Item < ActiveRecord::Base
   validates :user_id, presence: true
   validates :list_id, presence: true
   validates :description, presence: true
+  validates :deadline, presence: true
 
-  def days_left
-    7 - ((Time.now - self.created_at) / 1.day ).floor
+  def time_left
+    (self.deadline - Time.now)
   end
 
 end

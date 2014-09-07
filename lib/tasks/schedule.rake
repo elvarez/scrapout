@@ -1,7 +1,7 @@
 namespace :schedule do
 
-task delete_items: :environment do
-  Item.where("created_at <= ?", Time.now - 7.days).destroy_all
+task miss_items: :environment do
+  Item.where("deadline <= ? AND done = ?", Time.now, false).update_all(missed: true)
 end
 
 end
