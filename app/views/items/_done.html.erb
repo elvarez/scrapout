@@ -3,7 +3,9 @@
 	  <small>
 	    <%= done_item.description %>,
 	    <%= link_to "x", [done_item.list, done_item], method: :delete %>,
+	    <% if done_item.deadline > Time.now %>
 	    <%= link_to "undone", toggle_done_list_item_path(done_item.list_id, done_item), method: :put %>
+	    <% end %>
 	  </small>
         </div>
       </div>
