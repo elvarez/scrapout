@@ -29,7 +29,8 @@ before_action :signed_in_user, only: [:index, :create, :show, :destroy]
     if @list.nil?
       redirect_to :action => 'index'
     else
-      @items = @list.items
+      @todo = @list.items.todo
+      @missed = @list.items.missed
     end    
   end
 

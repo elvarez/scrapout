@@ -1,5 +1,7 @@
     <h1><%= @list.title %></h1>
-    <h4> Items <h4/>
-	<%= render @items %>
-	<%= render partial: 'items/form', locals: { list: @list, item: @list.items.build } %>
+    <h4> Todo </h4>
+      <%= render partial: "items/todo", collection: @todo, as: :todo_item %>
+      <%= render partial: 'items/form', locals: { list: @list, item: @list.items.build } %>
+    <h4> Missed </h4>
+      <%= render partial: "items/missed", collection: @missed, as: :missed_item %>
 

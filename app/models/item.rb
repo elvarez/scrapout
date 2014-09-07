@@ -7,6 +7,10 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :deadline, presence: true
 
+  scope :todo, -> { where("done = ? AND missed = ?", false, false) }
+  scope :missed, -> { where(missed: true) }
+  scope :done, -> { where(done: true) }
+
   def time_left
     (self.deadline - Time.now)
   end
