@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    
     @list = List.find(params[:list_id])
     @item = current_user.items.build(item_params)
     @item.list = @list
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:description)
+    params.require(:item).permit(:description, :deadline)
   end
 
 
