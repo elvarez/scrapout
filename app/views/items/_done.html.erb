@@ -1,11 +1,16 @@
-      <div class="media">
-	<div class="media-body">
-	  <small>
-	    <%= done_item.description %>,
-	    <%= link_to "x", [done_item.list, done_item], method: :delete %>,
-	    <% if done_item.deadline > Time.now %>
-	    <%= link_to "undone", toggle_done_list_item_path(done_item.list_id, done_item), method: :put %>
-	    <% end %>
-	  </small>
-        </div>
-      </div>
+<small>
+  <div class="row">
+    <div class= "col-md-7">
+      <% if done_item.deadline > Time.now %>
+      <%= link_to "[x]", toggle_done_list_item_path(done_item.list_id, done_item), method: :put %>
+      <% else %>
+      [x] 
+      <% end %>
+      <%= done_item.description %>
+    </div>
+    <div class= "col-md-5" align="right">
+      <%= done_item.updated_at.strftime("done %m/%d/%Y") %>
+      <%= link_to "(del)", [done_item.list, done_item], method: :delete %>
+    </div>
+  </div>
+</small>

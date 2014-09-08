@@ -1,3 +1,9 @@
+<center>
 <h1>SCRAPOUT</h1>
-<p>Scrap out that list!</p>
-<%= link_to "Sign up", signup_path %>
+    <p>Scrap out that list!</p>
+    <% if signed_in? %>
+      <%= link_to "Starting doing!", lists_path %>
+    <% else %>
+      <%= link_to "Sign up", signup_path %>
+    <% end %>
+</center>

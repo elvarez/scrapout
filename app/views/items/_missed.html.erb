@@ -1,7 +1,11 @@
-      <div class="media">
-	<div class="media-body">
-	  <small>
-	    <%= missed_item.description %>, <%= link_to "x", [missed_item.list, missed_item], method: :delete %>
-	  </small>
-        </div>
-      </div>
+<small>
+  <div class="row">
+    <div class= "col-md-7">
+      <%= missed_item.description %>
+    </div>
+    <div class= "col-md-5" align="right">
+      <%= missed_item.updated_at.strftime("missed %m/%d/%Y") %>
+      <%= link_to "(del)", [missed_item.list, missed_item], method: :delete %>
+    </div>
+  </div>
+</small>
