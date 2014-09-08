@@ -1,1 +1,61 @@
 @import "bootstrap";
+
+#header {
+  background-color: #03507B;
+  color: #FFF;
+  padding: 4px 100px;
+  border-bottom: solid 5px #00395A;
+  }
+
+
+$bgDefault      : #c3e4f1;
+$bgHighlight    : #40ade6;
+$colDefault     : #234f5a;
+$colHighlight   : #f9f7fa;
+.navbar-default {
+	background-color: $bgDefault;
+	border-color: $bgHighlight;
+	.navbar-brand {
+		color: $colDefault;
+		&:hover, &:focus { 
+			color: $colHighlight; }}
+	.navbar-text {
+		color: $colDefault; }
+	.navbar-nav {
+		> li {
+			> a {
+				color: $colDefault;
+				&:hover,  &:focus {
+					color: $colHighlight; }}}
+		> .active {
+			> a, > a:hover, > a:focus {
+				color: $colHighlight;
+				background-color: $bgHighlight; }}
+		> .open {
+			> a, > a:hover, > a:focus {
+				color: $colHighlight;
+				background-color: $bgHighlight; }}}
+	.navbar-toggle {
+		border-color: $bgHighlight;
+		&:hover, &:focus {
+			background-color: $bgHighlight; }
+		.icon-bar {
+			background-color: $colDefault; }}
+	.navbar-collapse,
+	.navbar-form {
+		border-color: $colDefault; }
+	.navbar-link {
+		color: $colDefault;
+		&:hover {
+			color: $colHighlight; }}}
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu {
+		> li > a {
+			color: $colDefault;
+			&:hover, &:focus {
+				color: $colHighlight; }}
+		> .active {
+			> a, > a:hover, > a:focus, {
+				color: $colHighlight;
+				background-color: $bgHighlight; }}}
+}

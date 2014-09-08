@@ -1,20 +1,20 @@
 <br/>
 <div class="row">
   <div class="col-md-4">
-    <center><h4> Todo </h4></center>
+    <center><h4><b> Todo </b></h4></center>
     <p>
       <%= render partial: 'items/todo', collection: @todo, as: :todo_item %>
       <%= render partial: 'items/form', locals: { list: @list, item: @list.items.build } %>
     </p>
   </div>
   <div class="col-md-4">
-    <center><h4> Done </h4></center>
+    <center><h4><b> Done </b></h4></center>
     <p>
       <%= render partial: "items/done", collection: @done, as: :done_item %>
     </p>
   </div>
   <div class="col-md-4">
-    <center><h4> Missed </h4></center>
+    <center><h4><b> Missed </b></h4></center>
     <p>
       <%= render partial: "items/missed", collection: @missed, as: :missed_item %>
     </p>
