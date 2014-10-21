@@ -1,0 +1,9 @@
+* ideas
+- stats
+- reminders
+
+* tips on ui
+
+- Contrast
+- Content!
+- Cohesion
