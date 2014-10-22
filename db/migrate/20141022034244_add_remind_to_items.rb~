@@ -1,0 +1,4 @@
+class AddRemindToItems < ActiveRecord::Migration
+  def change
+  end
+end

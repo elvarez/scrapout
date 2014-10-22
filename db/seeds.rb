@@ -21,6 +21,7 @@ Item.create!(
              user: u,
              list: l,
              description: Faker::Hacker.verb + " " + Faker::Hacker.adjective + " " + Faker::Hacker.noun,
+             remind: false,
              deadline: Time.now+5.day
              )
 end

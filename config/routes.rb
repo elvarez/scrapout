@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  resources :history, only: [:index]
+  resources :stats, only: [:index]
+  
+  
   resources :lists do
     resources :items do
       member do

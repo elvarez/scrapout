@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:description, :deadline)
+    params.require(:item).permit(:description, :deadline, :remind)
   end
 
 

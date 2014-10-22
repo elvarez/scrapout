@@ -11,11 +11,11 @@
 	['Tomorrow', (Time.now+1.day).end_of_day],
 	['Today', Time.now.end_of_day]
 	] ) %>
-    <%= f.select ,
+    Remind me?
+    <%= f.select :remind,
 	options_for_select( [
-	['Next week', (Time.now+7.day)],
-	['Tomorrow', (Time.now+1.day).end_of_day],
-	['Today', Time.now.end_of_day]
+	['Yes', true],
+	['No', false]
 	] ) %>
 	
     <!--     <%= f.submit "save"%>    -->
