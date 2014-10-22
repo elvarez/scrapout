@@ -11,6 +11,13 @@
 	['Tomorrow', (Time.now+1.day).end_of_day],
 	['Today', Time.now.end_of_day]
 	] ) %>
+    <%= f.select ,
+	options_for_select( [
+	['Next week', (Time.now+7.day)],
+	['Tomorrow', (Time.now+1.day).end_of_day],
+	['Today', Time.now.end_of_day]
+	] ) %>
+	
     <!--     <%= f.submit "save"%>    -->
   </div>
   <% end %>
