@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  
+
   belongs_to :user
   belongs_to :list
 
@@ -12,6 +12,9 @@ class Item < ActiveRecord::Base
   scope :todo, -> { where("done = ? AND missed = ?", false, false) }
   scope :missed, -> { where(missed: true) }
   scope :done, -> { where(done: true) }
+  scope :short, -> { where("deadline >= ? AND deadline <= ?", Date.today.beginning_of_day, (Date.today.end_of_day + 7.days)) }
+  scope :long, -> { where("deadline > ? ", (Date.today.end_of_day + 7.days)) }
+  scope :lastw, -> { where("updated_at >= ? ", (Date.today.beginning_of_day - 7.days)) }
 
   def time_left
     (self.deadline - Time.now)
@@ -21,5 +24,6 @@ class Item < ActiveRecord::Base
     errors.add(:deadline, "can't be in the past") if
       !deadline.blank? and deadline < Time.now
   end
-  
+
 end
+

@@ -29,9 +29,15 @@ before_action :signed_in_user, only: [:index, :create, :show, :destroy]
     if @list.nil?
       redirect_to :action => 'index'
     else
-      @todo = @list.items.todo
-      @missed = @list.items.missed
-      @done = @list.items.done
+      @todoall = @list.items.todo
+      @todoshort = @list.items.todo.short
+      @todolong = @list.items.todo.long
+
+      @donelastw = @list.items.done.lastw
+      @doneall = @list.items.done
+
+      @missedlastw = @list.items.missed.lastw
+      @missedall = @list.items.missed
     end    
   end
 
@@ -55,3 +61,4 @@ before_action :signed_in_user, only: [:index, :create, :show, :destroy]
 #    redirect_to root_url if @list.nil?
 #  end
 end
+

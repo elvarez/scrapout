@@ -12,24 +12,18 @@
   <div class="tabbable todo">
     <ul class="nav nav-tabs todo">
       <li class="active"><a href="#allt" data-toggle="tab">All</a></li>
-      <li><a href="#todayt" data-toggle="tab">Today</a></li>
-      <li><a href="#tomorrowt" data-toggle="tab">Tomorrow</a></li>
-      <li><a href="#nextweekt" data-toggle="tab">Next Week</a></li>
+      <li><a href="#shorttermt" data-toggle="tab">Short Term</a></li>
+      <li><a href="#longtermt" data-toggle="tab">Long Term</a></li>
     </ul>
     <div class="tab-content todo">
       <div class="tab-pane active itembox" id="allt">
-	<p>
-	  <%= render partial: 'items/todo', collection: @todo, as: :todo_item %>
-	</p>
+	<p> <%= render partial: 'items/todo', collection: @todoall, as: :todo_item %></p>
       </div>
-      <div class="tab-pane" id="todayt">
-TODAY TODO
+      <div class="tab-pane itembox" id="shorttermt">
+	<p><%= render partial: 'items/todo', collection: @todoshort, as: :todo_item %></p>
       </div>
-      <div class="tab-pane" id="tomorrowt">
-TOMORROW TODO
-      </div>
-      <div class="tab-pane" id="nextweekt">
-NEXTWEEK TODO
+      <div class="tab-pane itembox" id="longtermt">
+	<p><%= render partial: 'items/todo', collection: @todolong, as: :todo_item %></p>
       </div>
     </div>
   </div>
@@ -40,21 +34,15 @@ NEXTWEEK TODO
   <center><h4><b> Done </b></h4></center>
   <div class="tabbable done">
     <ul class="nav nav-tabs done">
-      <li class="active"><a href="#alld" data-toggle="tab">All</a></li>
-      <li><a href="#todayd" data-toggle="tab">Today</a></li>
-      <li><a href="#lastweekd" data-toggle="tab">Last week</a></li>
+      <li class="active"><a href="#lastweekd" data-toggle="tab">Last week</a></li>
+      <li><a href="#alld" data-toggle="tab">All</a></li>
     </ul>
     <div class="tab-content done">
-      <div class="tab-pane active itembox" id="alld">
-	<p>
-	  <%= render partial: "items/done", collection: @done, as: :done_item %>
-	</p>
+      <div class="tab-pane active itembox" id="lastweekd">
+	<p><%= render partial: "items/done", collection: @donelastw, as: :done_item %></p>
       </div>
-      <div class="tab-pane" id="todayd">
-TODAY DONE
-      </div>
-      <div class="tab-pane" id="lastweekd">
-LASTWEEK DONE
+      <div class="tab-pane itembox" id="alld">
+	<p><%= render partial: "items/done", collection: @doneall, as: :done_item %></p>
       </div>
     </div>
   </div>
@@ -65,20 +53,15 @@ LASTWEEK DONE
   <center><h4><b> Missed </b></h4></center>
   <div class="tabbable missed">
     <ul class="nav nav-tabs missed">
-      <li class="active"><a href="#allm" data-toggle="tab">All</a></li>
-      <li><a href="#todaym" data-toggle="tab">Today</a></li>
-      <li><a href="#lastweekm" data-toggle="tab">Last week</a></li>
+      <li class="active"><a href="#lastweekm" data-toggle="tab">Last week</a></li>
+      <li><a href="#allm" data-toggle="tab">All</a></li>
     </ul>
     <div class="tab-content missed">
-      <div class="tab-pane active itembox" id="allm">
-	<p>
-	  <%= render partial: "items/missed", collection: @missed, as: :missed_item %>	</p>
+      <div class="tab-pane active itembox" id="lastweekm">
+	<p><%= render partial: "items/missed", collection: @missedlastw, as: :missed_item %></p>
       </div>
-      <div class="tab-pane" id="todaym">
-TODAY MISSED
-      </div>
-      <div class="tab-pane" id="lastweekm">
-LASTWEEK MISSED
+      <div class="tab-pane itembox" id="allm">
+	<p><%= render partial: "items/missed", collection: @missedall, as: :missed_item %></p>
       </div>
     </div>
   </div>
