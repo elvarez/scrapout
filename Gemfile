@@ -21,6 +21,8 @@ gem 'whenever', :require => false
 # seeding
 gem 'faker'
 
+# quiet assets
+
 # Datepicker
 gem 'bootstrap-datepicker-rails'
 
@@ -40,8 +42,8 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 
-
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara', '~> 2.3.0'
+  gem 'quiet_assets'
 end
