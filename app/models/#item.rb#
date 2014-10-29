@@ -13,6 +13,10 @@ class Item < ActiveRecord::Base
   scope :missed, -> { where(missed: true) }
   scope :done, -> { where(done: true) }
 
+  def self.search(search)
+      @item = Item.find(:all, :conditions => 
+  end
+
   def time_left
     (self.deadline - Time.now)
   end

@@ -1,0 +1,24 @@
+<h2>History <%= @items.first.updated_at.to_date %> - <%= @items.last.updated_at.to_date %></h2>
+
+<% datesarray = Array.new %>
+<% @items.each do |i| %>
+  <% datesarray << i.updated_at.to_date %>
+<% end %>
+<% datesarray = datesarray.uniq %>
+<% datecounter = datesarray.count - 1 %>
+
+<% for i in 0..datecounter %>
+  </br>
+  <%= datesarray[i] %>
+  </br>
+  <% @items.each do |n| %>
+    <% if datesarray[i] == n.updated_at.to_date %>
+      <% if n.done == true %>
+        DONE <%= n.description %>
+      <% else %>
+        MISSED <%= n.description %>
+      <% end %>
+    </br>
+    <% end %>
+  <% end %>
+<% end %>

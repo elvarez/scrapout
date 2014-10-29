@@ -1,0 +1,19 @@
+<h2>History goes here</h2>
+
+<% datesarray = Array.new %>
+<% @items.each do |i| %>
+  <% datesarray << i.updated_at.to_date %>
+<% end %>
+<% datesarray = datesarray.uniq %>
+
+     
+
+</br>
+<%= @items.first.updated_at.to_date %>
+</br>
+
+<% @items.each do |n| %>
+  <% if datesarray.include?(n.updated_at.to_date) %>
+    <%= n.description %>
+    
+    <%= n.updated_at.to_date %>

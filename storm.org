@@ -7,3 +7,11 @@
 - Contrast
 - Content!
 - Cohesion
+
+* code for find 
+
+      leaveTime = Date.strptime(params[:flight][:leave_time], '%m/%d/%Y')
+      @flights = Flight.where("leave_city = ? AND arrive_city = ? AND cabin_class = ? 
+      AND leave_time >= ? AND leave_time <= ?", params[:flight][:leave_city], 
+      params[:flight][:arrive_city], params[:cabin_class], leaveTime -= 3, 
+      leaveTime += 3).order(:leave_time).per_page_kaminari params[:page]

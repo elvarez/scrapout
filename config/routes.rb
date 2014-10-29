@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :history, only: [:index]
   resources :stats, only: [:index]
   
+  resources :items, only: [:search, :index] do
+    get 'search', :on => :collection
+    post 'index', :on => :collection
+  end
   
   resources :lists do
     resources :items do

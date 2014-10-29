@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-datepicker3";
 
 #header {
   background-color: #03507B;
@@ -6,6 +7,12 @@
   padding: 4px 100px;
   border-bottom: solid 5px #00395A;
   }
+
+div.itembox {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
 
 $bgDefault      : #c3e4f1;

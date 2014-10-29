@@ -1,0 +1,9 @@
+
+
+<div>
+<%= form_for @item, url: items_path, method: :post do |f| %>
+  <%= f.text_field :updated_at, class: 'auto-kal' %>
+  <input class="auto-kal" name="to_filter" type="text">
+  <%= f.submit "Go", class: 'btn btn-success' %>
+<% end %>
+</div>

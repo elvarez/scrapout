@@ -1,0 +1,25 @@
+<div>
+<%= form_for @item, url: items_path, method: :post, do |f| %>
+  <%= f.text_field :from_time, class: 'auto-kal' %>
+  <%= f.submit "Save", class: 'btn btn-success' %>
+<% end %>
+</div>
+
+
+
+= form_for @item, :method => :post, :url => items_path do |f|
+  .tripdate
+    %ul
+      %li
+        - con = params[:error] and params[:error][:leave_time]
+        .control-group{:class => "#{con ? 'error' : '' }" }
+          = f.label :leave_time, "Depart Date", :class => "indextext control-label"
+          = f.text_field :leave_time, :class => "auto-kal", :placeholder => "dd/mm/yyyy"
+          %span.help-inline #{con ? params[:error][:leave_time] : ''}
+      %li
+        %span.indextext{:for => "end-date"} Return Date
+        %p
+          %input#end-date.auto-kal{:type => "text", :name => "return_time", :placeholder => "dd/mm/yyyy"}
+
+  = f.submit :class => "index_button submit", :value => "Find Items"
+

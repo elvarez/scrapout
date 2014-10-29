@@ -1,12 +1,21 @@
 class ItemsController < ApplicationController
+
+  def search
+
+  end
+  
+  def index
+
+  @items = Item.where("updated_at >= ? AND updated_at <= ?", params[:from_filter], params[:to_filter]).where("done = ? OR missed = ?", true, true).order('updated_at ASC')
     
+  end
+  
   def new
     @list = List.find(params[:list_id])
     @item = Item.new
   end
 
   def create
-    
     @list = List.find(params[:list_id])
     @item = current_user.items.build(item_params)
     @item.list = @list
@@ -43,6 +52,5 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:description, :deadline, :remind)
   end
-
 
 end
