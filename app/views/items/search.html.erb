@@ -1,9 +1,19 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: "yyyy/mm/dd",
+    });
+  });
+</script>
+
+
+
 <div>
   <%= form_tag items_path, method: :post do %>
   From
-  <%= date_field_tag :from_filter, class: 'datepicker' %>
+  <%= text_field_tag :from_filter, value = nil, class: 'datepicker' %>
   To
-  <%= date_field_tag :to_filter, class: 'datepicker' %>
+  <%= text_field_tag :to_filter, value = nil, class: 'datepicker' %>
   <%= submit_tag "Go", class: 'btn btn-success' %>
   <% end %>
 </div>

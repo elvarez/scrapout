@@ -1,3 +1,14 @@
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.datepicker').datepicker({
+      startDate: '0',
+      format: "yyyy/mm/dd",
+
+    });
+  });
+</script>
+
+
 <div class="row">
   <%= form_for [list, item] do |f| %>
   <div class= "col-md-7">
@@ -5,12 +16,7 @@
   </div>
   <div class= "col-md-5" align="right">
     Due
-    <%= f.select :deadline,
-	options_for_select( [
-	['Next week', (Time.now+7.day)],
-	['Tomorrow', (Time.now+1.day).end_of_day],
-	['Today', Time.now.end_of_day]
-	] ) %>
+    <%= f.text_field :deadline, class: 'datepicker' %>
     Remind me?
     <%= f.select :remind,
 	options_for_select( [
@@ -22,3 +28,4 @@
   </div>
   <% end %>
 </div>
+

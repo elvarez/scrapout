@@ -1,0 +1,17 @@
+var nowTemp = new Date();
+var now = new Date(nowTemp.getMonth(), nowTemp.getDate(), nowTemp.getFullYear(), 0, 0, 0, 0);
+
+
+$(document).ready(function() {
+
+
+$('#dpd1').datepicker({
+  onRender: function(date) {
+    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+  }
+});
+
+
+
+    
+x
