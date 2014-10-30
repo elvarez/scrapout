@@ -16,7 +16,7 @@ $(document).ready(function(){
   </div>
   <div class= "col-md-5" align="right">
     Due
-    <%= f.text_field :deadline, class: 'datepicker' %>
+    <%= f.date_field :deadline %>
     Remind me?
     <%= f.select :remind,
 	options_for_select( [

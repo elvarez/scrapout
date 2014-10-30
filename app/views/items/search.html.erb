@@ -1,9 +1,30 @@
 <script type="text/javascript">
-$(document).ready(function(){
-    $('.datepicker').datepicker({
+var nowTemp = new Date();
+var fromt = $('#dp1').datepicker({
       format: "yyyy/mm/dd",
-    });
-  });
+    }).on('changeDate', function (ev) {
+    if (ev.date.valueOf() > tot.datepicker("getDate").valueOf() || !tot.datepicker("getDate").valueOf()) {
+
+        var newDate = new Date(ev.date);
+        newDate.setDate(newDate.getDate() + 1);
+        tot.datepicker("update", newDate);
+
+    }
+});
+
+var tot = $('#dp2').datepicker({
+    beforeShowDay: function (date) {
+        if (!fromt.datepicker("getDate").valueOf()) {
+            return date.valueOf() >= new Date().valueOf();
+        } else {
+            return date.valueOf() > fromt.datepicker("getDate").valueOf();
+        }
+    },
+    format: "yyyy/mm/dd",
+    autoclose: true
+
+}).on('changeDate', function (ev) {});  
+
 </script>
 
 
@@ -11,9 +32,9 @@ $(document).ready(function(){
 <div>
   <%= form_tag items_path, method: :post do %>
   From
-  <%= text_field_tag :from_filter, value = nil, class: 'datepicker' %>
+  <%= text_field_tag :from_filter, value = nil, id: 'dp1' %>
   To
-  <%= text_field_tag :to_filter, value = nil, class: 'datepicker' %>
+  <%= text_field_tag :to_filter, value = nil, id: 'dp2' %>
   <%= submit_tag "Go", class: 'btn btn-success' %>
   <% end %>
 </div>
