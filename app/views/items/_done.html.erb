@@ -1,4 +1,3 @@
-<small>
   <div class="row">
     <div class= "col-md-7">
       <% if done_item.deadline > Time.now %>
@@ -12,5 +11,5 @@
       <%= done_item.updated_at.strftime("done %m/%d/%Y") %>
       <%= link_to "(del)", [done_item.list, done_item], method: :delete %>
     </div>
+              <hr style="border-top: dotted 2px; color: lightgreen" />
   </div>
-</small>

@@ -9,7 +9,7 @@
   }
 
 div.itembox {
-    height: 100px;
+    height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -50,3 +50,12 @@ $colHighlight   : #f9f7fa;
 		color: $colDefault;
 		&:hover {
 			color: $colHighlight; }}}
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+}
+
+.nav-tabs {
+    text-align:center;
+}

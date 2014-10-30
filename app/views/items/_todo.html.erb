@@ -1,12 +1,11 @@
-<small>
   <div class="row">
     <div class= "col-md-7">
-      <%= link_to "[ ]", toggle_done_list_item_path(todo_item.list_id, todo_item), method: :put %>
+      <%= link_to "[_]", toggle_done_list_item_path(todo_item.list_id, todo_item), method: :put %>
       <%= todo_item.description %>
     </div>
     <div class= "col-md-5" align="right">
 	<%= distance_of_time_in_words(Time.now, todo_item.deadline) %> left  <%= link_to "(del)", [todo_item.list, todo_item], method: :delete %>
     </div>
+          <hr style="border-top: dotted 2px; color: lightblue" />
   </div>
-</small>
 
