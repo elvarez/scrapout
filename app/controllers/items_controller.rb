@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   def index
 
   fromtime = Date.strptime(params[:from_filter], '%Y/%m/%d')
-  leavetime = Date.strptime(params[:to_filter], '%Y/%m/%d')
+  leavetime = Date.strptime(params[:to_filter], '%Y/%m/%d').end_of_day
   
   @items = Item.where("updated_at >= ? AND updated_at <= ?", fromtime, leavetime).where("done = ? OR missed = ?", true, true).order('updated_at ASC')
 
