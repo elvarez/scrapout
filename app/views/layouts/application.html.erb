@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Scrapout</title>
+  <title>Dohistory</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -17,10 +17,9 @@
 		 <%= signed_in? ? current_user.username : "" %>
 	       </p>
 	     </li>
-	     <li><%= link_to "Settings(?)", '#' %></li>
 	   </ul>
            <ul class="nav navbar-nav navbar-right">
-	     <li><%= link_to "Stats(?)", '/stats' %></li>
+	     <li><%= link_to "Stats(*)", '/stats' %></li>
 	     <li><%= link_to "History", '/items/search' %></li>
              <li><%= link_to "Lists", lists_path %></li>
              <li><%= link_to "Home", root_path %></li>
