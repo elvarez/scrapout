@@ -21,7 +21,8 @@ gem 'whenever', :require => false
 # seeding
 gem 'faker'
 
-# quiet assets
+# pry
+gem 'pry-rails'
 
 # Datepicker
 gem 'bootstrap-datepicker-rails'

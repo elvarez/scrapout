@@ -2,12 +2,11 @@
 $(document).ready(function(){
     $('.datepicker').datepicker({
       startDate: '0',
-      format: "yyyy/mm/dd",
+      format: "yyyy-mm-dd",
 
     });
   });
 </script>
-
 
 <div class="row">
   <%= form_for [list, item] do |f| %>
@@ -16,7 +15,7 @@ $(document).ready(function(){
   </div>
   <div class= "col-md-5" align="right">
     Due
-    <%= f.date_field :deadline %>
+    <%= text_field_tag :deadline, value = Date.today, class: 'datepicker' %>
     Remind me?
     <%= f.select :remind,
 	options_for_select( [
@@ -24,8 +23,7 @@ $(document).ready(function(){
 	['No', false]
 	] ) %>
 	
-    <!--     <%= f.submit "save"%>    -->
+    <%= f.submit "save"%>
   </div>
   <% end %>
 </div>
-

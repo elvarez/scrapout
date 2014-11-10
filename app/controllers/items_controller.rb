@@ -20,9 +20,11 @@ class ItemsController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
+    
+    params[:item].merge!(deadline: params[:deadline])
     @item = current_user.items.build(item_params)
     @item.list = @list
-    
+
     if @item.save
       redirect_to @list
     else
@@ -54,9 +56,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-
     params.require(:item).permit(:description, :deadline, :remind)
-    
   end
 
 end
