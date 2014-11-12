@@ -1,7 +1,7 @@
 <div>
 <%= form_for [list] do |f| %>
   <%= f.label "New list" %>
-  <%= f.text_field :title %>
-  <%= f.submit "Save", class: 'btn btn-success' %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <%= f.submit "Save", class: 'btn btn-default' %>
 <% end %>
 </div>

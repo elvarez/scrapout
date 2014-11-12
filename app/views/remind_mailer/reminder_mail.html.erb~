@@ -1,0 +1,5 @@
+<h1>RemindMailer#reminder_mail</h1>
+
+<p>
+  <%= @greeting %>, find me in app/views/remind_mailer/reminder_mail.html.erb
+</p>

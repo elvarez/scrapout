@@ -11,19 +11,21 @@ $(document).ready(function(){
 <div class="row">
   <%= form_for [list, item] do |f| %>
   <div class= "col-md-7">
-    [ ] <%= f.text_field :description, placeholder: 'New task'%>
+    <%= f.text_field :description, class: "form-control", placeholder: 'New task'%>
   </div>
-  <div class= "col-md-5" align="right">
-    Due
-    <%= text_field_tag :deadline, value = Date.today, class: 'datepicker' %>
-    Remind me?
-    <%= f.select :remind,
-	options_for_select( [
-	['Yes', true],
-	['No', false]
-	] ) %>
-	
-    <%= f.submit "save"%>
-  </div>
+    <div class="col-md-5" align="right">
+      <div class="form-group">
+	Due
+	<%= text_field_tag :deadline, value = Date.today, class: "form-control form-inline datepicker", id: "inl" %>
+    	Remind me?
+	<%= f.select(:remind,
+	    options_for_select( [
+	    ['Yes', true],
+	    ['No', false]
+	    ] ), {}, {class: "form-control form-inline", id: "inl"}) %>
+
+	<%= f.submit "Submit", class: "btn btn-default", id: "inl"%>
+      </div>
+    </div>
   <% end %>
 </div>
