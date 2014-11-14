@@ -5,9 +5,11 @@ namespace :schedule do
   end
 
   task remind_items: :environment do
-    Item.where("remind = ? AND deadline <= ?", true, (Date.tomorrow)).find_each do |it|
-      RemindMailer.reminder_mail(it.user, it.description).deliver
-      it.update(remind: false)
+    items = Item.where("remind = ? AND deadline <= ?", true, (Date.tomorrow))
+    items.each do |it|
+      if RemindMailer.reminder_mail(it.user, it.description).deliver
+        it.update_column(:remind, false)
+      end
     end
   end
 
