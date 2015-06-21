@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'reports/show'
+
   root 'welcome#index'
 
   resources :users, only: [:new, :create]

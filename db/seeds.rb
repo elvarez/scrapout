@@ -1,5 +1,10 @@
 require 'faker'
 
+User.destroy_all
+Item.destroy_all
+List.destroy_all
+Report.destroy_all
+
 # User test list
 User.create!(
              username: "szu",
@@ -8,6 +13,11 @@ User.create!(
              password_confirmation: "szuletett"
              )
 u = User.first
+
+r = Report.new
+
+r.user = u
+r.save
 
 List.create!(
              user: u,
@@ -32,4 +42,5 @@ Item.where("id > 20").update_all(:updated_at => Date.today-3.day)
 
 Item.where("id < 10").update_all(:done => true)
 Item.where("id < 10").update_all(:deadline => Date.today+2.day)
+Item.where("id < 10").update_all(:updated_at => Date.today-rand(1..5).day)
 Item.where("id > 20").update_all(:updated_at => Date.today-1.day)

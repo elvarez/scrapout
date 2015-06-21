@@ -13,4 +13,11 @@ namespace :schedule do
     end
   end
 
+  task update_reports: :environment do
+    report = CalcStats.new
+    report.update_active_days
+    report.update_idle_days
+    report.productivity_ratio
+  end
+
 end
