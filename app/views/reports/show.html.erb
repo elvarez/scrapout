@@ -1,6 +1,14 @@
+<% if current_user %>
+
 <h2> Statistics </h2>
 Idle days <%= @report.idle_days %>
 <br/>
 Active days <%= @report.active_days %>
 <br/>
 Productivity Ratio: <%= @report.prod_ratio %>
+
+<% else %>
+
+Sign up!
+
+<% end %>

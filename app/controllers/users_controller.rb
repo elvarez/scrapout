@@ -6,7 +6,10 @@ end
 
 def create
   @user = User.new(user_params)
+  
   if @user.save
+    report = @user.build_report(active_days: 0, idle_days: 0, prod_ratio: 0)
+    report.save
     redirect_to root_path
   else
     render 'new'

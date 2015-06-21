@@ -11,7 +11,7 @@
 
 <% for i in 0..datecounter %>
   </br>
-  <%= datesarray[i] %>
+  <h4><%= datesarray[i] %></h4>
   </br>
   <% @items.each do |n| %>
     <% if datesarray[i] == n.updated_at.to_date %>

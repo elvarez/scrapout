@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Dohistory</title>
+  <title>Listo</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -19,11 +19,11 @@
 	     </li>
 	   </ul>
            <ul class="nav navbar-nav navbar-right">
-	     <li><%= link_to "Stats(*)", reports_show_path %></li>
-	     <li><%= link_to "History", '/items/search' %></li>
-             <li><%= link_to "Lists", lists_path %></li>
              <li><%= link_to "Home", root_path %></li>
 	     <% if signed_in? %>
+	     <li><%= link_to "History", '/items/search' %></li>
+             <li><%= link_to "Lists", lists_path %></li>
+	     <li><%= link_to "Stats(*)", reports_show_path %></li>	     	     
 	     <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 	     <% else %>
 	     <li><%= link_to "Sign in", signin_path %></li>
